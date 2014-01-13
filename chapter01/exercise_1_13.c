@@ -21,28 +21,7 @@ easy to draw the histogram with the bars horizontal; a vertical orientation is m
 #define SIDE_BARS '|'
 #define EXTRA_COLS_FOR_BARS 2
 #define EXTRA_ROWS 2
-/*
-void create_bar() {
-    int x = 10;
 
-    printf("##\n");
-    printf("##\n");
-    printf("##\n");
-    printf("##\n");
-    printf("##\n");
-    printf("##\n");
-    printf("##\n");
-    printf("##\n");
-    printf("##\n");
-    printf("##\n");
-    printf("##\n");
-    printf("##\n");
-    printf("##\n");
-    printf("##\n");
-    printf("##\n");
-    printf("##\n");
-}
- */
 
 /**
  * Array in the format
@@ -52,12 +31,14 @@ void create_bar() {
  */
 void create_graph(int data[]) {
 
-    int scale = 15;
+    //int scale = 15;
+    int scale = 2;
     int largest = 0;
     int size = 0;
     int space_between_bars = 1;
     int bar_size = 2;
 
+    /* Vertical graph - Work in progress
     for (int x = 1; data[x] != 0; x += 2) {
         size++;
         if (data[x] > largest) {
@@ -75,8 +56,8 @@ void create_graph(int data[]) {
     printf("total_size_w: %d\n",total_size_w);
 
     char graph[total_size_h][total_size_w];
-
     char c = SPACE;
+
     //initialize the array with a space
     for (int x = 0; x < total_size_h; x++) {
         for (int n = 0; n < total_size_w; n++) {
@@ -101,7 +82,20 @@ void create_graph(int data[]) {
         }
         printf("\n");
     }
+     *
+     */
 
+    int result = 0;
+    for (int i = 0;data[i] != 0;i +=2) {
+        printf("%d ",data[i]);
+        result = data[i+1]/scale;
+
+        //printf("-- %d -- \n", result);
+        for (int n = 0;n<=result;n++) {
+            printf("#");
+        }
+        printf(" %d\n",data[i+1]);
+    }
 }
 
 /* count lines, words, and characters in input */
